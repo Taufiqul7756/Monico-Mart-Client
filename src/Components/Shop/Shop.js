@@ -19,7 +19,11 @@ const Shop = () => {
   // const [products, setProducts] = useState(first10);
   const [cart, setCart] = useState([]);
   const [androidData, setAndroidData] = useState(androids.slice(0, 4));
+  const [cameraData, setCameraData] = useState(camera.slice(0, 4));
+  const [laptopData, setLaptopData] = useState(laptops.slice(0, 4));
   const [hideAndroidLoad, setHideAndroidLoad] = useState(false);
+  const [hideCameraLoad, setHideCameraLoad] = useState(false);
+  const [hideLaptopLoad, setHideLaptopLoad] = useState(false);
 
   useEffect(() => {
     const savedCart = getDatabaseCart();
@@ -55,7 +59,7 @@ const Shop = () => {
       <div className="product-container">
         <div className="category-container">
           <div className="single-category">
-            <h2>Category: Android</h2>
+            <h2 className="category-container">Android:</h2>
             <div className="product-list">
               {androidData.map((pd) => (
                 <Product
@@ -67,22 +71,24 @@ const Shop = () => {
               ))}
             </div>
             {!hideAndroidLoad && (
-              <Button
-                variant="contained"
-                onClick={() => {
-                  setAndroidData(androids.slice(0, 10));
-                  setHideAndroidLoad(true);
-                }}
-              >
-                load more
-              </Button>
+              <div className="loadMore-button">
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    setAndroidData(androids.slice(0, 10));
+                    setHideAndroidLoad(true);
+                  }}
+                >
+                  load more ..
+                </Button>
+              </div>
             )}
           </div>
 
           <div className="single-category">
-            <h2>Category: Camera</h2>
+            <h2 className="category-container">Camera:</h2>
             <div className="product-list">
-              {camera.map((pd) => (
+              {cameraData.map((pd) => (
                 <Product
                   key={pd.key}
                   showAddToCart={true}
@@ -91,12 +97,25 @@ const Shop = () => {
                 ></Product>
               ))}
             </div>
+            {!hideCameraLoad && (
+              <div className="loadMore-button">
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    setCameraData(camera.slice(0, 10));
+                    setHideCameraLoad(true);
+                  }}
+                >
+                  load more ..
+                </Button>
+              </div>
+            )}
           </div>
 
           <div className="single-category">
-            <h2>Category: Laptop</h2>
+            <h2 className="category-container">Laptop:</h2>
             <div className="product-list">
-              {laptops.map((pd) => (
+              {laptopData.map((pd) => (
                 <Product
                   key={pd.key}
                   showAddToCart={true}
@@ -105,6 +124,19 @@ const Shop = () => {
                 ></Product>
               ))}
             </div>
+            {!hideLaptopLoad && (
+              <div className="loadMore-button">
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    setLaptopData(camera.slice(0, 10));
+                    setHideLaptopLoad(true);
+                  }}
+                >
+                  load more ..
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
