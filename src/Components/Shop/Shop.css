@@ -6,4 +6,18 @@
     margin-left: 20px;
     margin-right: 5px;
     border-right: 1px solid lightgray;
+   
+    /* grid-gap: 10px; */
+    padding-top: 10px;
+    
+}
+.loadMore-button{
+    display:flex;
+    justify-content: flex-end;
+    padding: 5px 10px 0 0;
+}
+
+.product-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
