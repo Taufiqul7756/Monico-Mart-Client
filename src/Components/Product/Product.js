@@ -12,15 +12,14 @@ const Product = (props) => {
       <div>
         <img src={img} alt="" />
       </div>
-      <div>
-        <h4 className="product-name">
+      <div style={{ marginLeft: "10px" }}>
+        <h5 className="product-name">
           <Link to={"/product/" + key}>{name}</Link>
-        </h4>
-        <br />
+        </h5>
         <p>
           <small>by: {seller}</small>
         </p>
-        <p>${price}</p>
+        <p className="product-price">${price}</p>
         <p>
           <small>Only {stock} left in stock - Order soon</small>
         </p>
