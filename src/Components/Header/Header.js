@@ -14,6 +14,7 @@ const Header = ({ signOut }) => {
         <Link to="/review">Review Cart</Link>
         <Link to="/profile">
           {!loggedInUser ? "Profile" : loggedInUser.name}
+
           {/* {loggedInUser && loggedInUser.name} {loggedInUser && "Profile"} */}
         </Link>
         <button
