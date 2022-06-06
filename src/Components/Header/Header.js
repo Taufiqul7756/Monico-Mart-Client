@@ -4,20 +4,22 @@ import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
-  // const [loggedInUser, setloggedInUser] = useContext(UserContext);
+const Header = ({ signOut }) => {
+  const [loggedInUser, setloggedInUser] = useContext(UserContext);
   return (
     <div className="header">
       {/* <img src={logo} alt="" /> */}
       <nav>
         <Link to="/shop">Shop</Link>
-        <Link to="/review">Review</Link>
-        <Link to="/manage">Manage Inventory</Link>
-        <Link to="/profile">Profile</Link>
+        <Link to="/review">Review Cart</Link>
+        <Link to="/profile">
+          {!loggedInUser ? "Profile" : loggedInUser.name}
+          {/* {loggedInUser && loggedInUser.name} {loggedInUser && "Profile"} */}
+        </Link>
         <button
-        // onClick={() => {
-        //   setloggedInUser({});
-        // }}
+          onClick={() => {
+            setloggedInUser({});
+          }}
         >
           Sign Out
         </button>
