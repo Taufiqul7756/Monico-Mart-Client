@@ -1,0 +1,13 @@
+.profile-container{
+    display: flex;
+}
+.photo-container img{
+    margin-right:20px;
+}
+   
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
