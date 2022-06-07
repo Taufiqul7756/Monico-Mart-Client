@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import "./Login.css";
 import { useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../App";
 import {
@@ -95,10 +96,22 @@ function Login() {
         {user.isSignedIn ? (
           <button onClick={SignOut}>Sign Out by using Google</button>
         ) : (
-          <button onClick={googleSignIn}>Sign in by using Google</button>
+          <button
+            onClick={googleSignIn}
+            type="button"
+            class="login-with-google-btn"
+          >
+            Sign in with Google
+          </button>
         )}
         <br />
-        <button onClick={FbSignIn}>sign in by using facebook</button>
+        <button
+          type="button"
+          class="login-with-facebook-btn"
+          onClick={FbSignIn}
+        >
+          Sign in with facebook
+        </button>
         {user.isSignedIn && (
           <div>
             <p>Welcome , {user.name}</p>
