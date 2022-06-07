@@ -32,9 +32,11 @@
 .login-container {
   display: flex;
   justify-content:center;
+  flex: 1;
 }
 .login{
   margin: 20px;
+  height: 100%;
   text-align: center;
   padding: 20px;
   border: 1px solid black;

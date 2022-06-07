@@ -1,6 +1,7 @@
 .twin-container{
     display: flex;
     position: relative;
+    flex: 1;
 }
 .product-container{
     width: 70%;
@@ -21,4 +22,16 @@
 .product-list{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+
+@media only screen and (max-width : 768px) {
+    .product-list{
+     
+        grid-template-columns: 1fr ;
+    }
+
+    .product-container{
+        border: none;
+    }
 }
