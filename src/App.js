@@ -1,38 +1,56 @@
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
-import { createContext, useState } from "react";
-import NoMatch from "./Components/NoMatch/NoMatch";
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Switch,
-  Link,
-} from "react-router-dom";
 import Shop from "./Components/Shop/Shop";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Review from "./Components/Review/Review";
+import NoMatch from "./Components/NoMatch/NoMatch";
+import ProductDetail from "./Components/ProductDetail/ProductDetail";
+import Shipment from "./Components/Shipment/Shipment";
+import { createContext } from "react";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Login from "./Components/Login/Login";
+import Profile from "./Components/Profile/Profile";
 
 export const UserContext = createContext();
 
-function App() {
+function App(props) {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <div className="App">
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <h3>email: {loggedInUser.email}</h3>
       <Router>
-        <Header></Header>
+        <Header signOut={loggedInUser}></Header>
         <Switch>
           <Route path="/shop">
             <Shop></Shop>
           </Route>
+          <Route path="/review">
+            <Review></Review>
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute path="/shipment">
+            <Shipment></Shipment>
+          </PrivateRoute>
+          <PrivateRoute path="/profile">
+            <Profile user={loggedInUser} />
+          </PrivateRoute>
 
+          <Route path="/product/:productKey">
+            <ProductDetail></ProductDetail>
+          </Route>
           <Route exact path="/">
             <Shop></Shop>
           </Route>
-          {/* <Route path="*">
+          <Route path="*">
             <NoMatch></NoMatch>
-          </Route> */}
+          </Route>
         </Switch>
+        {/* <Footer /> */}
       </Router>
-    </div>
+    </UserContext.Provider>
   );
 }
 
