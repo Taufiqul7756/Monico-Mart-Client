@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+
+.login-container {
+  display: flex;
+  justify-content:center;
+}
+.login{
+  margin: 20px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 4px 3px cadetblue;
+  width: fit-content;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
