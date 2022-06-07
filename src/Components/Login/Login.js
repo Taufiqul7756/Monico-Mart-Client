@@ -90,77 +90,79 @@ function Login() {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      {user.isSignedIn ? (
-        <button onClick={SignOut}>Sign Out by using Google</button>
-      ) : (
-        <button onClick={googleSignIn}>Sign in by using Google</button>
-      )}
-      <br />
-      <button onClick={FbSignIn}>sign in by using facebook</button>
-      {user.isSignedIn && (
-        <div>
-          <p>Welcome , {user.name}</p>
-          <p>Your Email: {user.email} </p>
-          <img src={user.photo} alt=""></img>
-        </div>
-      )}
-      <h6>Or Register yourself</h6>
-      {/* <p>Name: {user.name}</p>
+    <div className="login-container">
+      <div className="login" style={{ textAlign: "center" }}>
+        {user.isSignedIn ? (
+          <button onClick={SignOut}>Sign Out by using Google</button>
+        ) : (
+          <button onClick={googleSignIn}>Sign in by using Google</button>
+        )}
+        <br />
+        <button onClick={FbSignIn}>sign in by using facebook</button>
+        {user.isSignedIn && (
+          <div>
+            <p>Welcome , {user.name}</p>
+            <p>Your Email: {user.email} </p>
+            <img src={user.photo} alt=""></img>
+          </div>
+        )}
+        <h6>Or Register yourself</h6>
+        {/* <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
       <p>Password: {user.password}</p> */}
 
-      <input
-        type="checkbox"
-        onChange={() => setNewUser(!newUser)}
-        name="newUser"
-        id=""
-      />
-      <label htmlFor="newUser"> New User Sign up</label>
-      <br />
-
-      <form onSubmit={handleSubmit}>
-        {newUser && (
-          <input
-            name="name"
-            type="text"
-            onBlur={handleBlur}
-            placeholder="Your Name"
-          />
-        )}
-        <br />
         <input
-          type="text"
-          name="email"
-          onBlur={handleBlur}
-          placeholder="your Email address"
-          required
+          type="checkbox"
+          onChange={() => setNewUser(!newUser)}
+          name="newUser"
+          id=""
         />
+        <label htmlFor="newUser"> New User Sign up</label>
         <br />
-        <input
-          type="password"
-          name="password"
-          onBlur={handleBlur}
-          placeholder="Enter your password"
-          required
-        />{" "}
-        <br />
-        <input type="submit" value={newUser ? "Sign up" : "Sign in"} />
-      </form>
 
-      {user.error && (
-        <p style={{ color: "red" }}>
-          {" "}
-          This Email already in use. Please try another account !
-        </p>
-      )}
+        <form onSubmit={handleSubmit}>
+          {newUser && (
+            <input
+              name="name"
+              type="text"
+              onBlur={handleBlur}
+              placeholder="Your Name"
+            />
+          )}
+          <br />
+          <input
+            type="text"
+            name="email"
+            onBlur={handleBlur}
+            placeholder="your Email address"
+            required
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            onBlur={handleBlur}
+            placeholder="Enter your password"
+            required
+          />{" "}
+          <br />
+          <input type="submit" value={newUser ? "Sign up" : "Sign in"} />
+        </form>
 
-      {user.success && (
-        <p style={{ color: "green" }}>
-          {" "}
-          User {newUser ? "created" : "Sign in"} Successfully
-        </p>
-      )}
+        {user.error && (
+          <p style={{ color: "red" }}>
+            {" "}
+            This Email already in use. Please try another account !
+          </p>
+        )}
+
+        {user.success && (
+          <p style={{ color: "green" }}>
+            {" "}
+            User {newUser ? "created" : "Sign in"} Successfully
+          </p>
+        )}
+      </div>
     </div>
   );
 }
