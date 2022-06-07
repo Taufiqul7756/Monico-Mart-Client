@@ -1,5 +1,6 @@
 .ship-form{
     margin:30px 100px;
+    flex: 1;
 }
 .ship-form input {
     display: block;
