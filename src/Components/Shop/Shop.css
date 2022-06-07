@@ -1,5 +1,6 @@
 .twin-container{
     display: flex;
+    position: relative;
 }
 .product-container{
     width: 70%;
