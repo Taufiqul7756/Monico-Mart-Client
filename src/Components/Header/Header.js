@@ -10,7 +10,9 @@ const Header = ({ signOut }) => {
 
   return (
     <div className="header">
-      <img src={logo} alt="" />
+      <Link to="/shop">
+        <img src={logo} alt="" />
+      </Link>
       <nav>
         <Link to="/shop">Shop</Link>
         <Link to="/review">Review Cart</Link>
