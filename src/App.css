@@ -39,8 +39,14 @@
   padding: 20px;
   border: 1px solid black;
   border-radius: 8px;
-  box-shadow: 5px 5px 4px 3px cadetblue;
+  transition: all .5s ease;
+
   width: fit-content;
+}
+.login:hover{
+  box-shadow: -1px 2px 18px -3px rgba(0,0,0,0.79);
+-webkit-box-shadow: -1px 2px 18px -3px rgba(0,0,0,0.79);
+-moz-box-shadow: -1px 2px 18px -3px rgba(0,0,0,0.79);
 }
 
 @keyframes App-logo-spin {
