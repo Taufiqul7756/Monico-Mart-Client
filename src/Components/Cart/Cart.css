@@ -11,3 +11,9 @@
     padding: 5px;
     height: 100%;
 }
+
+@media only screen and (max-width : 768px) {
+    .cart-container{
+       display: none;
+    }
+}

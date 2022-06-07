@@ -11,6 +11,7 @@ import { createContext } from "react";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Login from "./Components/Login/Login";
 import Profile from "./Components/Profile/Profile";
+import Footer from "./Components/Footer/Footer";
 
 export const UserContext = createContext();
 
@@ -48,7 +49,7 @@ function App(props) {
             <NoMatch></NoMatch>
           </Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </UserContext.Provider>
   );
