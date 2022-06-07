@@ -12,3 +12,22 @@
 .error{
     color: red;
 }
+
+.shipment-button{
+    margin-top: 30px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 310px;
+}
+.shipment-button:hover {
+    background-color: #228075;
+    color: white;
+}
+
+.success-gif{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
